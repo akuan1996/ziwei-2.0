@@ -6,7 +6,14 @@ import type { ZiweiChart } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES, STAR_DESCRIPTIONS } from '@/lib/ziwei/constants';
 
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  //apiKey: process.env.ANTHROPIC_API_KEY,
+  authToken: process.env.ANTHROPIC_API_KEY,
+  baseURL: process.env.ANTHROPIC_BASE_URL,
+  defaultHeaders: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Accept': 'application/json',
+      // 不要写 Authorization
+    },
 });
 
 function buildChartContext(chart: ZiweiChart): string {
@@ -333,7 +340,7 @@ export async function POST(req: NextRequest) {
     const systemWithContext = `${SYSTEM_PROMPT}\n\n---\n\n以下是命主的完整命盘数据，请基于此进行解读：\n\n${chartContext}`;
 
     const stream = await client.messages.create({
-      model: 'claude-opus-4-6',
+      model: 'claude-opus-4-8',
       max_tokens: 1024,
       system: systemWithContext,
       messages: messages.map(m => ({
