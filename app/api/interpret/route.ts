@@ -7,8 +7,8 @@ import { STEMS, BRANCHES, STAR_DESCRIPTIONS } from '@/lib/ziwei/constants';
 
 const client = new Anthropic({
   //apiKey: process.env.ANTHROPIC_API_KEY,
-  authToken: 'https://apibrg.duoyuanx.net',
-  baseURL: 'sk-5cYTHCH0sfCnz4vxA4551d5c07A149DaB775AfD64959B6D8',
+  authToken: process.env.ANTHROPIC_API_KEY,
+  baseURL: process.env.ANTHROPIC_BASE_URL,
   defaultHeaders: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
       'Accept': 'application/json',
