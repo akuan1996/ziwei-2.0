@@ -275,6 +275,10 @@ export const PROVINCES: ProvinceInfo[] = [
       { name: '咸宁', longitude: 114.3 },
       { name: '随州', longitude: 113.4 },
       { name: '恩施', longitude: 109.5 },
+	  { name: "仙桃", longitude: 113.4 },
+	  { name: "天门", longitude: 113.2 },
+	  { name: "潜江", longitude: 112.9 },
+	  { name: "神农架", longitude: 110.7 }
     ],
   },
   {
